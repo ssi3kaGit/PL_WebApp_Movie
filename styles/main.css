@@ -1,8 +1,8 @@
+/* borrow one of the currently available resets: meyerweb. */
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -48,22 +48,24 @@ table {
 }
 
 
-/* Style 1. Create a class that will serve as a container for your elements, set margin, padding, and width.*/
+/*CSS Rule 2: Create a class that will serve as a container for your elements, set margin, padding, and width.*/
 .containerClass
 {
-    padding: 25px; /* Style 4. Add padding to the sections. You may want to try adjusting the padding to find the numbers that work for your ideal design. */
+    padding: 15px; /* Style 4. Add padding to the sections. You may want to try adjusting the padding to find the numbers that work for your ideal design. */
     margin-bottom: 10px;  /* Style 3. Add vertical space between elements; for example, set bottom margin to 22 pixels. */
-    margin: 25px 50px;
-    width: 90%; /*auto;*/
+    margin: 10px;
+    text-align: center;
+
+    /*width: auto;*/
 }
 
-/* Style 5. Set the copyright footer to float left. Create a copyright class and set the float property to be left. Add the copyright class to the <small> tag. */
+/* CSS Rule 3: Set the copyright footer to float left. Create a copyright class and set the float property to be left. Add the copyright class to the <small> tag. */
 .copyrightClass
 {
     float: left;
 }
 
-/* Style 6. Create a primary-footer class to further specify the look-and-feel of the footer and set top and bottom padding. Then, add the class to the <footer>. */
+/* CSS Rule 4: Create a primary-footer class to further specify the look-and-feel of the footer and set top and bottom padding. Then, add the class to the <footer>. */
 .primaryFooter
 {
     padding-top: 25px;
@@ -71,36 +73,38 @@ table {
     outline-color: black;
 }
 
-/* Responsive 1. */
+/* CSS Rule 5 */
 * {
     box-sizing: border-box;
 } 
 
 /* Responsive 2. Define column width. Typically, we want a responsive grid-view with 12 columns. Therefore, each column’s width is 100% / 12 = 8.33%. */
 
-.col-1 {width: 8.33%;}
+/*
+.container {
+  display: grid;
+  grid-template-columns: 18% 18% 18% 18% 18%;
+  grid-template-rows: 90%;
+  justify-items: center;
+}
+*/
 
-.col-2 {width: 16.66%;}
+.row{width: 100%; margin: 1em 0;}
 
-.col-3 {width: 25%;}
+/*
+.group:after {
+    content: "";
+    display: table;
+    clear: both;
+  }     
+*/
 
-.col-4 {width: 33.33%;}
+[class*="col-"] {
+    float: left;
+    margin: 0 0 0 2%;
+}
 
-.col-5 {width: 41.66%;}
-
-.col-6 {width: 50%;}
-
-.col-7 {width: 58.33%;}
-
-.col-8 {width: 66.66%;}
-
-.col-9 {width: 75%;}
-
-.col-10 {width: 83.33%;}
-
-.col-11 {width: 91.66%;}
-
-.col-12 {width: 100%;}
+/* CSS Rule 6: media stuff*/
 
 /* Repsonsive 3. */
 @media only screen and (max-width: 768px) {
@@ -111,7 +115,48 @@ table {
 } 
 
 @media only screen and (min-width: 768px) {
-    /*thing*/
+    .col-x {width: 16.4%;}
+
+    .col-1 {width: 8.33%;}
+
+    .col-2 {width: 16.66%;}
+
+    .col-3 {width: 25%;}
+
+    .col-4 {width: 33.33%; }
+
+    .col-5 {width: 41.66%;}
+
+    .col-6 {width: 50%;}
+
+    .col-7 {width: 58.33%;}
+
+    .col-8 {width: 66.66%;}
+
+    .col-9 {width: 75%;}
+
+    .col-10 {width: 83.33%;}
+
+    .col-11 {width: 91.66%;}
+
+    .col-12 {width: 100%;}
+
+    [class*="col-"] {
+        /*width: 100%;*/
+        float: left;
+        padding: 20px;
+    }
 } 
 
+
+/* CSS Rule 7: */
+html { 
+    background: url(https://coolbackgrounds.io/images/backgrounds/index/ranger-4df6c1b6.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  
 
