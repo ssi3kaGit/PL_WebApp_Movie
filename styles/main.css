@@ -1,71 +1,41 @@
-/* borrow one of the currently available resets: meyerweb. */
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
+
+/*===============================================================================================================================*/
+
+/*CSS Rule: search bar colors*/
+.search {
+    margin: 3rem;
+    margin-left: 12rem;
+    background-color: transparent;
+    border: 2px solid #e9e9ec;
+    border-radius: 50px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
 }
 
-
-/*CSS Rule 2: Create a class that will serve as a container for your elements, set margin, padding, and width.*/
-.containerClass
-{
-    padding: 15px; /* Style 4. Add padding to the sections. You may want to try adjusting the padding to find the numbers that work for your ideal design. */
-    margin-bottom: 10px;  /* Style 3. Add vertical space between elements; for example, set bottom margin to 22 pixels. */
-    margin: 10px;
-    text-align: center;
-
-    /*width: auto;*/
+.search::placeholder {
+    color: #636364;
 }
 
-/* CSS Rule 3: Set the copyright footer to float left. Create a copyright class and set the float property to be left. Add the copyright class to the <small> tag. */
+.search:focus {
+    background-color: #050505;
+    outline: none;
+}
+
+.media {
+    justify-content: center;
+  }
+
+/* CSS Rule: Footer*/
+
+/*Set the copyright footer to float left. Create a copyright class and set the float property to be left. Add the copyright class to the <small> tag. */
 .copyrightClass
 {
     float: left;
 }
 
-/* CSS Rule 4: Create a primary-footer class to further specify the look-and-feel of the footer and set top and bottom padding. Then, add the class to the <footer>. */
+/* Create a primary-footer class to further specify the look-and-feel of the footer and set top and bottom padding. Then, add the class to the <footer>. */
 .primaryFooter
 {
     padding-top: 25px;
@@ -73,7 +43,6 @@ table {
     outline-color: black;
 }
 
-/* CSS Rule 5 */
 * {
     box-sizing: border-box;
 } 
@@ -104,7 +73,7 @@ table {
     margin: 0 0 0 2%;
 }
 
-/* CSS Rule 6: media stuff*/
+/* CSS Rule 4: Responsive design and media stuff*/
 
 /* Repsonsive 3. */
 @media only screen and (max-width: 768px) {
@@ -149,14 +118,14 @@ table {
 } 
 
 
-/* CSS Rule 7: */
+/* CSS Rule: background of page */
 html { 
     background: url(https://coolbackgrounds.io/images/backgrounds/index/ranger-4df6c1b6.png) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-  }
+}
 
   
 
