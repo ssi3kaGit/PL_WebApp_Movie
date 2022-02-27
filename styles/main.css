@@ -50,7 +50,7 @@
 /*Set the copyright footer to float left. Create a copyright class and set the float property to be left. Add the copyright class to the <small> tag. */
 .copyrightClass
 {
-    float: left;
+    float: middle;
 }
 
 /* Create a primary-footer class to further specify the look-and-feel of the footer and set top and bottom padding. Then, add the class to the <footer>. */
