@@ -1,43 +1,56 @@
 
+
 /*===============================================================================================================================*/
 
-/*CSS Rule: search bar border/font/margin*/
+/*CSS Rule: search bar border/font/margin/color*/
 .search {
     margin: 3rem;
-    margin-left: 12rem;
     background-color: transparent;
-    border: 2px solid #e9e9ec;
-    border-radius: 50px;
+    border: 2px solid #508be2;
     color: #fff;
-    font-family: inherit;
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
 }
-
-.search::placeholder {
+form.input.placeholder {
     color: #636364;
 }
-
 .search:focus {
-    background-color: #050505;
-    outline: none;
+    background-color: #508be2;
+}
+
+div.movieArea{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/*CSS Rule: movie item border/font/margin/color*/
+.movieItem {
+    background-color: #dcdde4;
+    border-radius: 2px;
+    box-shadow: 0 2px 2.5px rgba(31, 30, 30, 0.2);
+    margin: 1rem;
+    width: 265px;
+}
+.movieItem img {
+    width: 100%;
+}
+.movieItemTitle {
+    color: rgb(27, 27, 27);
+    display: flex;
+    text-align: center;
+    justify-content: center;
 }
 
 /*CSS Rule: acordion color*/
 
 .accordion {
     background-color: white !important;
-  }
-
-  .accordion-button{
+}
+.accordion-button{
     background-color: white;
     color: black;
-
 }
 .accordion-body{
     color: black;
     background-color:  rgb(240, 236, 236);
-
 }
 
 /*Have at least two CSS rules that update the style or layout of your screens when specific events occur.*/
@@ -75,6 +88,8 @@ button:hover {
 }
 img {
     -webkit-filter: brightness(100%);
+    box-shadow: 0 4px 5px rgba(31, 30, 30, 0.2);
+
 }
 img:hover {
     -webkit-filter: brightness(70%);
@@ -89,10 +104,9 @@ img:hover {
 
 
 
-
-
 .media {
     justify-content: center;
+    box-shadow: 0 2px 2.5px rgba(31, 30, 30, 0.2);
   }
 
 /* CSS Rule: Footer*/
@@ -128,7 +142,10 @@ img:hover {
 }
 */
 
-.row{width: 100%; margin: 1em 0;}
+.row{
+    width: 100%; 
+    margin: 1em 0;
+}
 
 /*
 .group:after {
