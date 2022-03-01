@@ -213,5 +213,44 @@ html {
     background-size: cover;
 }
 
-  
+.movie-container{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  } 
 
+
+
+.write-review-button{
+    display: flex;
+    text-align: center;
+    padding-left: 10px;
+    padding-bottom: 25px;
+    justify-content: space-between;
+    
+}
+.review-posts{
+    padding-left: 10px;
+}
+.seeReview-container{
+    display: flex;
+    text-align: left;
+    justify-content: left;
+    padding-top: 30px;
+}
+.Movie-Image-review{
+    padding-top: 25px;
+}
+.reviews-header{
+    padding-top: 20px;
+}
+.reviews{
+    padding-left: 20px;
+}
+.upvoted-info{
+    display: flex;
+    justify-content: space-between;
+}
+.overflow-auto{
+    padding-right: 20px;
+}
