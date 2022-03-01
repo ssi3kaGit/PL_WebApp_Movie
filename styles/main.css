@@ -12,7 +12,8 @@
 form.input.placeholder {
     color: #636364;
 }
-.search:focus {
+
+.search:focus { /*pseudo class: focus*/
     background-color: #508be2;
 }
 
@@ -60,7 +61,7 @@ h2{
     transition: color 0.25s;
     color: black;
 }
-h2:hover {
+h2:hover { /*pseudoclass: hover for text headings*/
     color: red;
 }
 h3{
@@ -83,15 +84,18 @@ h4:hover {
     border-bottom: solid 2px red;
 }
 
-button:hover {
+
+button:hover { /*pseudoclass: hover for buttons*/
     border-bottom: solid 2px red;
 }
+
+
 img {
     -webkit-filter: brightness(100%);
     box-shadow: 0 4px 5px rgba(31, 30, 30, 0.2);
 
 }
-img:hover {
+img:hover { /*pseudoclass: hover for img*/
     -webkit-filter: brightness(70%);
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -99,9 +103,6 @@ img:hover {
     -ms-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
-
-/*CSS Rule: upvote, downvote*/
-
 
 
 .media {
@@ -111,13 +112,15 @@ img:hover {
 
 /* CSS Rule: Footer*/
 
-/*Set the copyright footer to float left. Create a copyright class and set the float property to be left. Add the copyright class to the <small> tag. */
+/*Set the copyright footer to float left. Create a copyright class and set the float property to be left. 
+Add the copyright class to the <small> tag. */
 .copyrightClass
 {
     float: middle;
 }
 
-/* Create a primary-footer class to further specify the look-and-feel of the footer and set top and bottom padding. Then, add the class to the <footer>. */
+/* Create a primary-footer class to further specify the look-and-feel of the footer and set top and bottom padding. 
+Then, add the class to the <footer>. */
 .primaryFooter
 {
     padding-top: 25px;
@@ -131,7 +134,8 @@ img:hover {
     box-sizing: border-box;
 } 
 
-/* Responsive 2. Define column width. Typically, we want a responsive grid-view with 12 columns. Therefore, each column’s width is 100% / 12 = 8.33%. */
+/* Responsive 2. Define column width. Typically, we want a responsive grid-view with 12 columns. 
+Therefore, each column’s width is 100% / 12 = 8.33%. */
 
 /*
 .container {
@@ -218,7 +222,6 @@ html {
     text-align: center;
     justify-content: center;
   } 
-
 
 
 .write-review-button{
