@@ -102,38 +102,45 @@
             <?php echo $deleteMsg??''; ?>
             <div class="table-responsive">
             <table class="table table-bordered">
-            <thead><tr><th>Reviews (Most Recent at Top)</th>
-                <th>Title</th>
-                <th>Category</th>
-                <th>Date</th>
-                <th>Review</th>
-                <th>Rating</th>
+                <thead><tr><th>Reviews (Most Recent at Top)</th>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Date</th>
+                    <th>Review</th>
+                    <th>Rating</th>
 
-            </thead>
-            <tbody>
-        <?php
-            if(is_array($msg)){      
-            $sn=1;
-            foreach($msg as $data){
-            ?>
-            <tr>
-            <td><?php echo $sn; ?></td>
-            <td><?php echo $data['title']??''; ?></td>
-            <td><?php echo $data['category']??''; ?></td>
-            <td><?php echo $data['date']??''; ?></td>
-            <td><?php echo $data['review']??''; ?></td>
-            <td><?php echo $data['rating']??''; ?></td>
-            </tr>
-            <?php
-            $sn++;}}else{ ?>
-            <tr>
-                <td colspan="8">
-            <?php echo $msg; ?>
-        </td>
-            <tr>
-            <?php
-            }?>
-            </tbody>
+                </thead>
+                <tbody>
+                    <?php
+                        if(is_array($msg))
+                        {      
+                            $sn=1;
+                            foreach($msg as $data)
+                            {
+                    ?>
+                                <tr>
+                                <td><?php echo $sn; ?></td>
+                                <td><?php echo $data['title']??''; ?></td>
+                                <td><?php echo $data['category']??''; ?></td>
+                                <td><?php echo $data['date']??''; ?></td>
+                                <td><?php echo $data['review']??''; ?></td>
+                                <td><?php echo $data['rating']??''; ?></td>
+                                </tr>
+                    <?php
+                                $sn++;
+                            }
+                        }
+                        else{ 
+                    ?>
+                            <tr>
+                                <td colspan="8">
+                                    <?php echo $msg; ?>
+                                </td>
+                            <tr>
+                    <?php
+                        }
+                    ?>
+                </tbody>
             </table>
         </div>
         </div>

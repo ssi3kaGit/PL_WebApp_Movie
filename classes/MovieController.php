@@ -52,54 +52,89 @@ class MovieController {
     }
 
     private function login() {
-        if (isset($_POST["email"])) {
-            $data = $this->db->query("select * from movie_userinfo where email = ?;", "s", $_POST["email"]);
-            if ($data === false) {
-                $error_msg = "Error checking for user";
-            } else if (!empty($data)) {
-                if (password_verify($_POST["password"], $data[0]["password"])) {
-                    $_SESSION["name"] = $data[0]["name"]; 
-                    //setcookie("name", $data[0]["name"], time() + 3600);
-                    $_SESSION["email"] = $data[0]["email"];
-                    //setcookie("email", $data[0]["email"], time() + 3600);
-                    //setcookie("score", $data[0]["score"], time() + 3600);
-                    header("Location: ?command=homePage");
-                } else {
-                    $error_msg = "Wrong password";
-                }
-            } else { // empty, no user found
-                // TODO: input validation
-                // Note: never store clear-text passwords in the database
-                //       PHP provides password_hash() and password_verify()
-                //       to provide password verification
-                $insert = $this->db->query("insert into movie_userinfo (name, email, password) values (?, ?, ?);", 
-                        "sss", $_POST["name"], $_POST["email"], 
-                        password_hash($_POST["password"], PASSWORD_DEFAULT));
-                if ($insert === false) {
-                    $error_msg = "Error inserting user";
-                } else {
-                    $_SESSION["name"] = $_POST["name"];
-                    //setcookie("name", $_POST["name"], time() + 3600);
-                    $_SESSION["email"] = $_POST["email"];
-                    //setcookie("email", $_POST["email"], time() + 3600);
-                    //setcookie("score", 0, time() + 3600);
-                    header("Location: ?command=homePage");
+        $error_msg = "";
+        if (isset($_POST["email"])) 
+        {
+            $email = $_POST["email"];
+            $thing = $this->validateEmail($email);
+            if($thing == true){
+                //echo "email is valid";
+                $data = $this->db->query("select * from movie_userinfo where email = ?;", "s", $_POST["email"]);
+                if ($data === false) 
+                {
+                    $error_msg = "Error checking for user";
+                } 
+                else if (!empty($data)) 
+                {
+                    if (password_verify($_POST["password"], $data[0]["password"])) {
+                        $_SESSION["name"] = $data[0]["name"]; 
+                        setcookie("name", $data[0]["name"], time() + 3600);
+                        $_SESSION["email"] = $data[0]["email"];
+                        //setcookie("email", $data[0]["email"], time() + 3600);
+                        //setcookie("score", $data[0]["score"], time() + 3600);
+                        header("Location: ?command=homePage");
+                    } else {
+                        $error_msg = "Wrong password";
+                    }
+                } 
+                else 
+                { // empty, no user found
+                    // TODO: input validation
+                    // Note: never store clear-text passwords in the database
+                    //       PHP provides password_hash() and password_verify()
+                    //       to provide password verification
+                    $insert = $this->db->query("insert into movie_userinfo (name, email, password) values (?, ?, ?);", 
+                            "sss", $_POST["name"], $_POST["email"], 
+                            password_hash($_POST["password"], PASSWORD_DEFAULT));
+                    if ($insert === false) {
+                        $error_msg = "Error inserting user";
+                    } else {
+                        $_SESSION["name"] = $_POST["name"];
+                        setcookie("name", $data[0]["name"], time() + 3600);
+                        //setcookie("name", $_POST["name"], time() + 3600);
+                        $_SESSION["email"] = $_POST["email"];
+                        //setcookie("email", $_POST["email"], time() + 3600);
+                        //setcookie("score", 0, time() + 3600);
+                        header("Location: ?command=homePage");
+                    }
                 }
             }
+            else if($this->validateEmail($_POST["email"]) == false){
+                $error_msg = "Invalid email format, please try again";
+                //echo $error_msg;
+            }
         }
+        
         include("templates/login.php");
     }
+
+    //function to validate email using regex
+    private function validateEmail($email) { 
+        /*...*/ 
+        $answer = true;
+        $pattern = "/[a-zA-Z0-9_+-]?([a-zA-Z0-9_+-]+\.[a-zA-Z0-9_+-]+)?@([a-zA-Z0-9_+-]+\.[a-zA-Z0-9_+-]+)+/";
+        //echo "regex match: ". preg_match($regex, $email). "\n";
+        if (preg_match($pattern, $email) == 0 ){
+            $answer = false;
+        }
+        //echo $answer;
+        return $answer; // Outputs true if match, else false
+    }
+    
 
     private function homePage() 
     {
         $newUserInfo = $this->updateUserInfo();
 
         $user = [
-            "name" => $_SESSION["name"],
+            "name" => $_COOKIE["name"],
             "email" => $_SESSION["email"],
             //"score" => $_COOKIE["score"]
         ];
-        
+
+        //$email = $_SESSION["email"];
+        //$avgMsg = $this->db->query("select avg(rating) from movie_reviews where title = ? order by date desc;", "s", $email);
+
         include("templates/home.php");
     }
     private function seeReviews() 
@@ -120,7 +155,7 @@ class MovieController {
         //$fetchData = fetch_data($data); //($db, $sql, $email);
 
         $user = [
-            "name" => $_SESSION["name"],
+            "name" => $_COOKIE["name"],
             "email" => $_SESSION["email"],
             //"score" => $_SESSION["score"]
         ];
@@ -234,6 +269,8 @@ class MovieController {
              //$rating = $_POST['rating'];
  
              $email = $_SESSION["email"];
+             setcookie("name", $_POST["name"], time() + 3600);
+             $_SESSION["name"] = $_POST["name"];
              // database insert SQL code
              //$sql = "insert into `movie_reviews` (`id`, `user_email`, `date`, `category`, `title`, `review`, `rating`) values (?, ?, ?, ?, ?, ?, ?);";
  
@@ -252,7 +289,7 @@ class MovieController {
     private function enterReview() {
         //$data = $this->db->query("select id, question, answer from question order by rand() limit 1;");
         $user = [
-            "name" => $_SESSION["name"],
+            "name" => $_COOKIE["name"],
             "email" => $_SESSION["email"],
             //"score" => $_COOKIE["score"]
         ];
@@ -263,7 +300,7 @@ class MovieController {
     private function editInfo() {
         //$data = $this->db->query("select id, question, answer from question order by rand() limit 1;");
         $user = [
-            "name" => $_SESSION["name"],
+            "name" => $_COOKIE["name"],
             "email" => $_SESSION["email"],
             //"score" => $_COOKIE["score"]
         ];
