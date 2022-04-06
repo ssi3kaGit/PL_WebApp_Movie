@@ -87,6 +87,7 @@
                     </div>
                 </form>
                 -->
+                    <!-- create new review -->
                     <form action="?command=seeReviews" method="post">
                         <p>
                             <label for="title">Title of Movie </label>

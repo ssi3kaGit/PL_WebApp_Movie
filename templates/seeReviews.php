@@ -147,7 +147,7 @@
         </div>
         </div>
 
-        <!-- msg 2-->
+        <!-- msg 2 creates table based on MySQL array for msg2-->
         <div class="container">
         <div class="row">
         <div class="col-sm-8">
@@ -189,7 +189,7 @@
         </div>
         </div>
 
-        <!-- msg3 -->
+        <!-- msg3 creates table based on MySQL array for msg3 -->
         <div class="container">
         <div class="row">
         <div class="col-sm-8">
