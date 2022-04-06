@@ -195,33 +195,39 @@
             <thead><tr><th>Reviews by Category</th>
                 <th>Category</th>
                 <th>Review</th>
-            </thead>
-            <tbody>
-        <?php
-            if(is_array($msg3)){      
-            $sn=1;
-            foreach($msg3 as $data3){
+        </thead>
+        <tbody>
+            <?php
+                if(is_array($msg3)){
+
+                    $sn=1;
+                    foreach($msg3 as $data3){
             ?>
-            <tr>
-            <td><?php echo $sn; ?></td>
-            <td><?php echo $data3['category']??''; ?></td>
-            <td><?php echo $data3['review']??''; ?></td>
-            </tr>
+                        <tr>
+                        <td><?php echo $sn; ?></td>
+                        <td><?php echo $data3['category']??''; ?></td>
+                        <td><?php echo $data3['review']??''; ?></td>
+                        </tr>
             <?php
-            $sn++;}}else{ ?>
-            <tr>
-                <td colspan="8">
-            <?php echo $msg3; ?>
-        </td>
-            <tr>
+                        $sn++;
+                    }
+                }
+                else{ 
+            ?>
+                <tr>
+                    <td colspan="8">
+                        <?php echo $msg3; ?>
+                    </td>
+                <tr>
             <?php
-            }?>
-            </tbody>
+                }
+            ?>
+                </tbody>
             </table>
-        </div>
-        </div>
-        </div>
-        </div>
+            </div>
+            </div>
+            </div>
+            </div>
 
         <footer class="primaryFooter containerClass"> <!-- class="text-center bg-light text-muted p-1 fixed-bottom mt-5"> -->
         <small class="copyrightClass">

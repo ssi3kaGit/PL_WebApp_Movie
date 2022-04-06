@@ -148,7 +148,7 @@ class MovieController {
         
         $msg2 = $this->db->query("select title, rating from movie_reviews where user_email = ? order by rating desc;", "s", $email);
 
-        $msg3 = $this->db->query("select category, review from movie_reviews where user_email = ? group by category;", "s", $email);
+        $msg3 = $this->db->query("select category, review from movie_reviews where user_email = ? order by category;", "s", $email);
 
         
         //$sql = "select * from hw5_transaction where user_email = ? order by t_date desc;";
