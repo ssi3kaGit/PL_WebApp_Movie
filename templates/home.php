@@ -164,7 +164,7 @@
     <footer class="primaryFooter containerClass"> <!-- class="text-center bg-light text-muted p-1 fixed-bottom mt-5"> -->
         <small class="copyrightClass">
           &copy; 2022 Copyright:
-        <a class="text-reset fw-bold" >Sneha Iyer, McKayla Thomas. CS 4640, UVA</a>
+          <a class="text-reset fw-bold" >Sneha Iyer, McKayla Thomas. CS 4640, UVA</a>
         </small>
     </footer>
     <!-- 4. include bootstrap Javascript-->

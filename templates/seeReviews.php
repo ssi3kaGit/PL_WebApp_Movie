@@ -159,25 +159,29 @@
                 <th>Rating</th>
             </thead>
             <tbody>
-        <?php
-            if(is_array($msg2)){      
-            $sn=1;
-            foreach($msg2 as $data2){
-            ?>
-            <tr>
-            <td><?php echo $sn; ?></td>
-            <td><?php echo $data2['title']??''; ?></td>
-            <td><?php echo $data2['rating']??''; ?></td>
-            </tr>
-            <?php
-            $sn++;}}else{ ?>
-            <tr>
-                <td colspan="8">
-            <?php echo $msg3; ?>
-        </td>
-            <tr>
-            <?php
-            }?>
+                <?php
+                    if(is_array($msg2)){      
+                        $sn=1;
+                        foreach($msg2 as $data2){
+                ?>
+                        <tr>
+                        <td><?php echo $sn; ?></td>
+                        <td><?php echo $data2['title']??''; ?></td>
+                        <td><?php echo $data2['rating']??''; ?></td>
+                        </tr>
+                <?php
+                        $sn++;
+                        }
+                    }else{ 
+                ?>
+                    <tr>
+                        <td colspan="8">
+                            <?php echo $msg3; ?>
+                        </td>
+                    <tr>
+                    <?php
+                    }
+                ?>
             </tbody>
             </table>
         </div>
@@ -192,48 +196,47 @@
             <?php echo $deleteMsg??''; ?>
             <div class="table-responsive">
             <table class="table table-bordered">
-            <thead><tr><th>Reviews by Category</th>
-                <th>Category</th>
-                <th>Review</th>
-        </thead>
-        <tbody>
-            <?php
-                if(is_array($msg3)){
-
-                    $sn=1;
-                    foreach($msg3 as $data3){
-            ?>
+                <thead><tr><th>Reviews by Category</th>
+                    <th>Category</th>
+                    <th>Review</th>
+                </thead>
+                <tbody>
+                    <?php
+                        if(is_array($msg3)){
+                            $sn=1;
+                            foreach($msg3 as $data3){
+                    ?>
+                                <tr>
+                                <td><?php echo $sn; ?></td>
+                                <td><?php echo $data3['category']??''; ?></td>
+                                <td><?php echo $data3['review']??''; ?></td>
+                                </tr>
+                    <?php
+                                $sn++;
+                            }
+                        }
+                        else{ 
+                    ?>
                         <tr>
-                        <td><?php echo $sn; ?></td>
-                        <td><?php echo $data3['category']??''; ?></td>
-                        <td><?php echo $data3['review']??''; ?></td>
-                        </tr>
-            <?php
-                        $sn++;
-                    }
-                }
-                else{ 
-            ?>
-                <tr>
-                    <td colspan="8">
-                        <?php echo $msg3; ?>
-                    </td>
-                <tr>
-            <?php
-                }
-            ?>
+                            <td colspan="8">
+                                <?php echo $msg3; ?>
+                            </td>
+                        <tr>
+                    <?php
+                        }
+                    ?>
                 </tbody>
             </table>
-            </div>
-            </div>
-            </div>
-            </div>
+        </div>
+        </div>
+        </div>
+        </div>
 
         <footer class="primaryFooter containerClass"> <!-- class="text-center bg-light text-muted p-1 fixed-bottom mt-5"> -->
-        <small class="copyrightClass">
-            &copy; 2022 Copyright:
-        <a class="text-reset fw-bold" >Sneha Iyer, McKayla Thomas. CS 4640, UVA</a>
-        </small>
+            <small class="copyrightClass">
+                &copy; 2022 Copyright:
+                <a class="text-reset fw-bold" >Sneha Iyer, McKayla Thomas. CS 4640, UVA</a>
+            </small>
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     </body>

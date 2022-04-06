@@ -87,44 +87,44 @@
                     </div>
                 </form>
                 -->
-                <form action="?command=seeReviews" method="post">
-                    <p>
-                    <label for="title">Title of Movie </label>
-                    <input type="text" name="title" id="title">
-                    </p>
-                    <p>
-                    <label for="category">Category</label>
-                    <input type="text" name="category" id="category">
-                    </p>
-                    <p>
-                    <label for="date">Date</label>
-                    <input type="date" name="date" id="date">
-                    </p>
-                    <p>
-                    <label for="review">Review</label>
-                    <!--<input type="text" name="review" id="review"> -->
-                    <textarea id="review" name="review" rows="4" cols="50">   </textarea>
+                    <form action="?command=seeReviews" method="post">
+                        <p>
+                            <label for="title">Title of Movie </label>
+                            <input type="text" name="title" id="title">
+                        </p>
+                        <p>
+                            <label for="category">Category</label>
+                            <input type="text" name="category" id="category">
+                        </p>
+                        <p>
+                            <label for="date">Date</label>
+                            <input type="date" name="date" id="date">
+                        </p>
+                        <p>
+                            <label for="review">Review</label>
+                            <!--<input type="text" name="review" id="review"> -->
+                            <textarea id="review" name="review" rows="4" cols="50">   </textarea>
 
-                    </p>
-                    <p>
-                    <label for="rating">Rating (worst 0 - 10 best):</label>
-                    <input type="text" name="rating" id="rating">
-                    </p>                     
-        
-                    <p>&nbsp;</p>
-                    <p>
-                    <input type="submit" name="Submit" id="Submit" value="Submit">
-                    </p>
-                </form>
+                        </p>
+                        <p>
+                            <label for="rating">Rating (worst 0 - 10 best):</label>
+                            <input type="text" name="rating" id="rating">
+                        </p>                     
+            
+                        <p>&nbsp;</p>
+                        <p>
+                            <input type="submit" name="Submit" id="Submit" value="Submit">
+                        </p>
+                    </form>
                 </div>
             </div>
         </div>
 
         <footer class="primaryFooter containerClass"> <!-- class="text-center bg-light text-muted p-1 fixed-bottom mt-5"> -->
-        <small class="copyrightClass">
-            &copy; 2022 Copyright:
-        <a class="text-reset fw-bold" >Sneha Iyer, McKayla Thomas. CS 4640, UVA</a>
-        </small>
+            <small class="copyrightClass">
+                &copy; 2022 Copyright:
+                <a class="text-reset fw-bold" >Sneha Iyer, McKayla Thomas. CS 4640, UVA</a>
+            </small>
         </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>

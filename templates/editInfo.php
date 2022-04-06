@@ -86,29 +86,26 @@
                     </div>
                 </form>
                 -->
-                <form action="?command=homePage" method="post">
-                    <p>
-                    <label for="name">Edit Username</label>
-                    <input type="text" name="name" id="name">
-                    </p>
-                              
-        
-                    <p>&nbsp;</p>
-                    <p>
-                    <input type="submit" name="Submit" id="Submit" value="Submit">
-                    </p>
-                </form>
+                    <form action="?command=homePage" method="post">
+                        <p>
+                            <label for="name">Edit Username</label>
+                            <input type="text" name="name" id="name">
+                        </p>
+                        <p>&nbsp;</p>
+                            <p>
+                                <input type="submit" name="Submit" id="Submit" value="Submit">
+                            </p>
+                    </form>
                 </div>
             </div>
         </div>
 
         <footer class="primaryFooter containerClass"> <!-- class="text-center bg-light text-muted p-1 fixed-bottom mt-5"> -->
-        <small class="copyrightClass">
-            &copy; 2022 Copyright:
-        <a class="text-reset fw-bold" >Sneha Iyer, McKayla Thomas. CS 4640, UVA</a>
-        </small>
+            <small class="copyrightClass">
+                &copy; 2022 Copyright:
+                <a class="text-reset fw-bold" >Sneha Iyer, McKayla Thomas. CS 4640, UVA</a>
+            </small>
         </footer>
-
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     </body>
 </html>
