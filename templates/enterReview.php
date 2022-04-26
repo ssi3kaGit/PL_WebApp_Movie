@@ -89,6 +89,9 @@
                 <form name="form2" id="form2" action="?command=seeReviews" method="post"> <!-- onsubmit="return(checkForm())"> -->
                         <label for="title">Title of Movie </label>
                         <input type="text" name="title" id="title">
+                        <!--<div id="getTitle">
+                        </div>
+                        -->
                     <p>
                         <label for="category">Category</label>
                         <input type="text" name="category" id="category">

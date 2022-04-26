@@ -149,7 +149,7 @@ function displayMoviesInDiv(movies) {
                     <h5>${title}</h5>
             </div>
 
-            <a class="nav-link text-dark btn btn-default" href="?command=enterReview" onkeyup="form2.title.value=${title}">Create A Review</a>
+            <a class="nav-link text-dark btn btn-default" href="?command=enterReview" value="${title}">Create A Review</a>
             `;
             // <img src="${IMGPATH + poster_path}" alt="${title}"/>
             // <input type="image" name="submit" src="${IMGPATH + poster_path}" alt="Submit" />
@@ -168,7 +168,13 @@ function displayMoviesInDiv(movies) {
         movieContent.appendChild(movieElement);
     });
 }
+// function myFunction() {
+//     const movieTitleElement = document.createElement("div");
+//     var x = document.getElementById("getTitle");
+//     console.log(x);
+//     //movieTitleElement.innerHTML = `<h5>${x.value}</h5>`
 
+// }
 
 //------------------------------STATS------------------------------
 
