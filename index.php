@@ -1,6 +1,6 @@
 <?php
 session_start();
-//Link to published version: https://cs4640.cs.virginia.edu/ssi3ka/PL_WebApp_Movie/
+//Link to published version: https://cs4640.cs.virginia.edu/ssi3ka/PL_WebApp_Movie3/
 
 // Register the autoloader
 spl_autoload_register(function($classname) {

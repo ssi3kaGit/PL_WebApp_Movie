@@ -42,57 +42,52 @@
     <link rel="stylesheet" href="your-custom.css" /> 
     -->
     <link rel="stylesheet" href="styles/main.css">
-    <script src="script.js" defer></script>
 
 </head>
 
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-sm navbar-custom border-bottom-0">
-        <a class="navbar-brand mb-0 h1" href="home.html" aria-label="home"></a>
-        <img src="https://img.freepik.com/free-photo/arrangement-film-elements-red-background-with-copy-space_23-2148457861.jpg?size=626&ext=jpg" 
-          style="width:3%" alt="nav img">
-        <nav class="navbar navbar-dark navbar-custom border-bottom-0">
-            <a class="navbar-brand mb-0 h1" href="home.html" aria-label="home"></a>
-            <a class="navbar-brand mb-0 h1" href="home.html" aria-label="home" style="color: black;">ReviewMovies</a> 
-        </nav>
-        <div class="navbar-collapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <!-- <a class="nav-link text-dark" href="home.html"> Home </a> --> 
-                    <a class="nav-link text-dark" href="?command=homePage" class="btn btn-primary">Home</a>
+      <a class="navbar-brand mb-0 h1" href="home.html" aria-label="home"></a>
+      <img src="https://img.freepik.com/free-photo/arrangement-film-elements-red-background-with-copy-space_23-2148457861.jpg?size=626&ext=jpg" 
+      style="width:3%" alt="nav img">
+      <nav class="navbar navbar-dark navbar-custom border-bottom-0">
+          <a class="navbar-brand mb-0 h1" href="home.html" aria-label="home"></a>
+          <a class="navbar-brand mb-0 h1" href="home.html" aria-label="home" style="color: black;">ReviewMovies</a> 
+      </nav>
+      <div class="navbar-collapse">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                  <!-- <a class="nav-link text-dark" href="home.html"> Home </a> --> 
+                  <a class="nav-link text-dark btn btn-default" href="?command=homePage">Home</a>
 
-                </li>
-                <li class="nav-item">
-                    <!-- <a class="nav-link text-dark" href="enterReview.php"> Create Review </a> -->
-                    <a class="nav-link text-dark" href="?command=enterReview" class="btn btn-primary">Create New Review</a>
+              </li>
+             
+              <li class="nav-item">
+                  <!-- <a class="nav-link text-dark" href="seeReviews.php"> See Reviews </a> -->
+                  <a class="nav-link text-dark btn btn-default" href="?command=seeReviews">See Reviews</a>
 
-                </li>
-                <li class="nav-item">
-                    <!-- <a class="nav-link text-dark" href="seeReviews.php"> See Reviews </a> -->
-                    <a class="nav-link text-dark" href="?command=seeReviews" class="btn btn-primary">See Reviews</a>
+              </li>
+              <li class="nav-item">
+                  <!-- <a class="nav-link text-dark" href="editInfo.html"> Edit Information </a> -->
+                  <a class="nav-link text-dark btn btn-default" href="?command=editInfo">Edit/Update User Info</a>
 
-                </li>
-                <li class="nav-item">
-                    <!-- <a class="nav-link text-dark" href="editInfo.html"> Edit Information </a> -->
-                    <a class="nav-link text-dark" href="?command=editInfo" class="btn btn-primary">Edit/Update User Info</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link text-dark btn btn-danger" href="?command=logout">Logout</a>
+              </li>
+          </ul>
+      </div>
 
-                </li>
-                <li class="nav-item">
-                        <a class="nav-link text-dark" href="?command=logout" class="btn btn-danger">Logout</a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Searchbar -->
-        <form id="form">
-            <input
-                type="text"
-                id="search"
-                placeholder="Searchbar"
-                class="search"
-            />
-        </form>
+      <!-- Searchbar -->
+      <form id="form">
+          <input
+              type="text"
+              id="search"
+              placeholder="Searchbar"
+              class="search"
+          />
+      </form>
     </nav>
 
     <!-- Media heading -->
@@ -147,13 +142,14 @@
 
     <!--Filter Buttons-->
     <div class="justify-content: center;">
-      <button class="btn btn-primary filter-button" data-filter="all">All</button>
-      <button class="btn btn-default filter-button" data-filter="fantasy">Fantasy</button>
-      <button class="btn btn-default filter-button" data-filter="scifi">SciFi</button>
-      <button class="btn btn-default filter-button" data-filter="comedy">Comedy</button>
-      <button class="btn btn-default filter-button" data-filter="romance">Romance</button>
-      <button class="btn btn-default filter-button" data-filter="horror">Horror</button>
-      <button class="btn btn-default filter-button" data-filter="action">Action/Adventure</button>
+      <button id="all" onclick="allMovies()" class="btn btn-default filter-button" data-filter="all">All</button>
+      <button id="fantasy" onclick="fantasyMovies()" class="btn btn-default filter-button" data-filter="fantasy">Fantasy</button>
+      <button id="scifi" onclick="scifiMovies()" class="btn btn-default filter-button" data-filter="scifi">SciFi</button>
+      <button id="comedy" onclick="comedyMovies()" class="btn btn-default filter-button" data-filter="comedy">Comedy</button>
+      <button id="romance" onclick="romanceMovies()" class="btn btn-default filter-button" data-filter="romance">Romance</button>
+      <button id="horror" onclick="horrorMovies()" class="btn btn-default filter-button" data-filter="horror">Horror</button>
+      <button id="animation" onclick="animationMovies()" class="btn btn-default filter-button" data-filter="animation">Animation</button>
+      <button id="action" onclick="actionMovies()" class="btn btn-default filter-button" data-filter="action">Action/Adventure</button>
     </div>
 
     <!-- this div is for the list of movies (hopefully layed out in a Netflix-esque grid format)-->
@@ -164,10 +160,12 @@
     <footer class="primaryFooter containerClass"> <!-- class="text-center bg-light text-muted p-1 fixed-bottom mt-5"> -->
         <small class="copyrightClass">
           &copy; 2022 Copyright:
-        <a class="text-reset fw-bold" >Sneha Iyer, McKayla Thomas. CS 4640, UVA</a>
+          <a class="text-reset fw-bold" >Sneha Iyer, McKayla Thomas. CS 4640, UVA</a>
         </small>
     </footer>
     <!-- 4. include bootstrap Javascript-->
+    <script src="script.js" defer></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" 
       integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 

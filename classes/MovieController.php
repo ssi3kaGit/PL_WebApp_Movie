@@ -23,6 +23,9 @@ class MovieController {
 
     public function run() {
         switch($this->command) {
+            case "get_jsonObj":
+                $this->getJSONReview();
+                break;
             case "enterReview":
                 $this->enterReview();
                 break;
@@ -126,8 +129,12 @@ class MovieController {
     {
         $newUserInfo = $this->updateUserInfo();
 
+        $name = "";
+        if (isset($_COOKIE["name"])){
+            $name = $_COOKIE["name"];
+        }
         $user = [
-            "name" => $_COOKIE["name"],
+            "name" => $name,
             "email" => $_SESSION["email"],
             //"score" => $_COOKIE["score"]
         ];
@@ -137,6 +144,27 @@ class MovieController {
 
         include("templates/home.php");
     }
+
+    private function getJSONReview(){
+        //this will return "favorite" title (i.e. the title with the max rating. If it is a tie, it will return the first one in table)
+
+        //Implement a query that returns JSON instead of HTML
+        //make a sql query and instead of displaying the result on the screen (HTML), convert it to json and save it in a variable.
+        $email = $_SESSION["email"];
+
+        $msg4 = $this->db->query("select title, rating from movie_reviews where user_email = ? and rating = (select max(rating) from movie_reviews where user_email = ?);", "ss", $email, $email);
+        //("select title, MAX(rating) from movie_reviews where user_email = ? limit 1;", "s", $email);
+        //("select title from movie_reviews where user_email = ? and rating = (select max(rating) from movie_reviews where user_email = ?)");
+        //("select title, review from movie_reviews where user_email = ?;", "s", $email);
+        
+        //$json_var = json_encode($msg4[0]);
+        //echo $json_var;
+
+        // Return JSON only
+        header("Content-type: application/json");
+        echo json_encode($msg4, JSON_PRETTY_PRINT);
+    }
+
     private function seeReviews() 
     {
         $transac = $this->loadNewReview();
@@ -148,12 +176,11 @@ class MovieController {
         
         $msg2 = $this->db->query("select title, rating from movie_reviews where user_email = ? order by rating desc;", "s", $email);
 
-        $msg3 = $this->db->query("select category, review from movie_reviews where user_email = ? group by category;", "s", $email);
+        $msg3 = $this->db->query("select category, review from movie_reviews where user_email = ? order by category;", "s", $email);
 
         
-        //$sql = "select * from hw5_transaction where user_email = ? order by t_date desc;";
-        //$fetchData = fetch_data($data); //($db, $sql, $email);
-
+        
+        
         $user = [
             "name" => $_COOKIE["name"],
             "email" => $_SESSION["email"],
@@ -220,15 +247,15 @@ class MovieController {
             $rating = $_POST['rating'];
 
 
-            if ($rating < 0) 
-            {   
-                $rating = 0;
-                //echo "Please make sure rating is between 0 -10 \n";      
-            }
-            if ($rating > 10){
-                $rating = 10;
-                //echo "Please make sure rating is between 0 -10 \n";
-            }   
+            // if ($rating < 0) 
+            // {   
+            //     $rating = 0;
+            //     //echo "Please make sure rating is between 0 -10 \n";      
+            // }
+            // if ($rating > 10){
+            //     $rating = 10;
+            //     //echo "Please make sure rating is between 0 -10 \n";
+            // }   
 
             $email = $_SESSION["email"];
             // database insert SQL code
@@ -239,7 +266,7 @@ class MovieController {
 
             if($rs)
             {
-                echo "New Review Had Been Inserted Into Database \n";
+                //echo "New Review Had Been Inserted Into Database \n";
                 return $rs;
             }
         }
@@ -280,7 +307,7 @@ class MovieController {
             $rs = $this->db->query("update movie_userinfo set name = ? where email = ?", "ss", $name, $email);
             if($rs)
             {
-                echo "User Information Has Been Updated In Database \n";
+                //echo "User Information Has Been Updated In Database \n";
                 return $rs;
             }
          }
@@ -289,7 +316,7 @@ class MovieController {
     private function enterReview() {
         //$data = $this->db->query("select id, question, answer from question order by rand() limit 1;");
         $user = [
-            "name" => $_COOKIE["name"],
+            "name" => $_SESSION["name"],
             "email" => $_SESSION["email"],
             //"score" => $_COOKIE["score"]
         ];

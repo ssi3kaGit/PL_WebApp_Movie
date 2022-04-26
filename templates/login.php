@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <!-- 3. Include the following <meta> tags in the <head> section of this index.html --> 
         <meta charset="utf-8">
@@ -51,9 +51,7 @@
             <div class="row justify-content-center">
                 <div class="col-4">
                 
-                <h6 style="color: red;">
-                    <?= $error_msg ?>
-                </h6>
+                <h6 style="color: red;"><?= $error_msg ?></h6>
 
                 <form action="?command=login" method="post">
                     <div class="mb-3">

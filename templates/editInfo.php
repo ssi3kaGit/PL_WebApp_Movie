@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">  
 
@@ -27,26 +27,22 @@
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                         <!-- <a class="nav-link text-dark" href="home.html"> Home </a> --> 
-                        <a class="nav-link text-dark" href="?command=homePage" class="btn btn-primary">Home</a>
+                        <a class="nav-link text-dark btn btn-default" href="?command=homePage">Home</a>
 
                     </li>
-                    <li class="nav-item">
-                        <!-- <a class="nav-link text-dark" href="enterReview.php"> Create Review </a> -->
-                        <a class="nav-link text-dark" href="?command=enterReview" class="btn btn-primary">Create New Review</a>
-
-                    </li>
+                    
                     <li class="nav-item">
                         <!-- <a class="nav-link text-dark" href="seeReviews.php"> See Reviews </a> -->
-                        <a class="nav-link text-dark" href="?command=seeReviews" class="btn btn-primary">See Reviews</a>
+                        <a class="nav-link text-dark btn btn-default" href="?command=seeReviews">See Reviews</a>
 
                     </li>
                     <li class="nav-item">
                         <!-- <a class="nav-link text-dark" href="editInfo.html"> Edit Information </a> -->
-                        <a class="nav-link text-dark" href="?command=editInfo" class="btn btn-primary">Edit/Update User Info</a>
+                        <a class="nav-link text-dark btn btn-default" href="?command=editInfo">Edit/Update User Info</a>
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="?command=logout" class="btn btn-danger">Logout</a>
+                        <a class="nav-link text-dark btn btn-danger" href="?command=logout">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -64,7 +60,7 @@
 
         <div class="container" style="margin-top: 15px;">
             <div class="row col-xs-8">
-                <h1>CS4640 Sprint 3 -- Edit User Information</h1>
+                <h1>CS4640 Sprint 4 -- Edit User Information</h1>
                 <h3>Hello <?=$user["name"]?>! Email: <?=$user["email"]?></h3>
             </div>
             <div class="row">
@@ -86,16 +82,15 @@
                     </div>
                 </form>
                 -->
-                <form action="?command=homePage" method="post">
+                <form name="form3" id="form3" action="?command=homePage" method="post">
                     <p>
-                    <label for="name">Edit Username</label>
-                    <input type="text" name="name" id="name">
+                        <label for="name">Edit Username</label>
+                        <input type="text" name="name" id="name">
                     </p>
                               
-        
                     <p>&nbsp;</p>
                     <p>
-                    <input type="submit" name="Submit" id="Submit" value="Submit">
+                        <input type="submit" name="Submit" id="Submit" value="Submit">
                     </p>
                 </form>
                 </div>
@@ -105,9 +100,43 @@
         <footer class="primaryFooter containerClass"> <!-- class="text-center bg-light text-muted p-1 fixed-bottom mt-5"> -->
         <small class="copyrightClass">
             &copy; 2022 Copyright:
-        <a class="text-reset fw-bold" >Sneha Iyer, McKayla Thomas. CS 4640, UVA</a>
+            <a class="text-reset fw-bold" >Sneha Iyer, McKayla Thomas. CS 4640, UVA</a>
         </small>
         </footer>
+
+        <!-- jquery script -->
+        <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            
+            //arrow function
+            checkEqual = (val) => "" == val;
+
+            //jquery used here for form validation dynamic behavior
+            //anonymous function used here too
+            $("#form3").submit(function(){
+                var valid = true;
+
+                //second condition
+                if (checkEqual(document.form3.name.value)) {
+                    alert('Failure, please enter a username')
+                    valid = false;
+                }
+                else{
+                    alert("Success!")
+                }
+                //check whether form should submit
+                if(!valid){
+                    //Suppress form submit
+                    return false;
+                }else{
+                    return true;
+                }
+            });
+
+        </script>
+
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     </body>
