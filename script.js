@@ -134,6 +134,8 @@ function animationMovies() {
 //------------------------------LISTS THE MOVIES IN A DIV, GET DIV FROM INDEX (id = content)------------------------------
 const movieContent = document.getElementById("content");
 
+//onkeyup="sessionStorage.setItem('title',${title});
+
 function displayMoviesInDiv(movies) {
     movieContent.innerHTML = "";
 
@@ -141,6 +143,9 @@ function displayMoviesInDiv(movies) {
         const {poster_path, title} = movie;
         const movieElement = document.createElement("div");
         movieElement.classList.add("movieItem"); //CSS formatting, class = movieItem
+        console.log("title: ", {title}.title);
+        var title_text = {title}.title;
+        
 
         movieElement.innerHTML = 
             `
@@ -149,12 +154,18 @@ function displayMoviesInDiv(movies) {
                     <h5>${title}</h5>
             </div>
 
-            <a class="nav-link text-dark btn btn-default" href="?command=enterReview" onkeyup="form2.title.value=${title}">Create A Review</a>
+            <a class="nav-link text-dark btn btn-default" href="?command=enterReview" onClick="sessionStorage.setItem('id', '${title}')">Create A Review</a>
             `;
+
+            //localStorage.setItem('user', user.value);
+            //sessionStorage.setItem('title'," +title_text + ");
+
+
             // <img src="${IMGPATH + poster_path}" alt="${title}"/>
             // <input type="image" name="submit" src="${IMGPATH + poster_path}" alt="Submit" />
-                            // <input type="hidden" id="title" name="title" value="${title}" onkeyup="form2.title.value=this.value">
-                //action="templates/enterReview.php" method="GET">
+            // <input type="hidden" id="title" name="title" value="${title}" onkeyup="form2.title.value=this.value">
+            //action="templates/enterReview.php" method="GET">
+
             /*
             <form name="form1" command="?enterReview">
             <input type="submit" value="Submit">

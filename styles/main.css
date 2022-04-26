@@ -209,13 +209,7 @@ Therefore, each column’s width is 100% / 12 = 8.33%. */
 
 
 /* CSS Rule: background of page */
-html { 
-    background: url(https://coolbackgrounds.io/images/backgrounds/index/ranger-4df6c1b6.png) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
+
 
 .movie-container{
     display: flex;
@@ -259,18 +253,48 @@ html {
 }
 
 
-#moveDiv {
-    position: absolute;
-    z-index: 9;
-    background-color: #f1f1f1;
-    text-align: center;
-    border: 1px solid #d3d3d3;
+/* form styling */
+*, *:before, *:after {
+    box-sizing: border-box;
+  }
+
+  input[type=text] {
+    padding:10px;
+    border:1;
+    border-radius:15px;
+    margin: 5px;
+    box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+  }
+  .rounded-input {
+    padding:10px;
+    border-radius:10px;
   }
   
-  #moveDivheader {
-    padding: 10px;
-    cursor: move;
-    z-index: 10;
-    background-color: #2196F3;
-    color: #fff;
+  textarea {
+    width:100%;
+    resize: vertical;
+    padding:15px;
+    border-radius:15px;
+    border:1;
+    box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+    height:150px;
   }
+  input[type=submit] {
+    background-color: skyblue;
+    border: 3px solid #555;
+    padding:15px;
+    border-radius:15px;
+    box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+    /* background-image: url(''); */
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    /* padding-left: 40px; */
+  }
+
+  label {
+    color: black;
+    font-weight: bold;
+    display: block;
+    width: 150px;
+    float: left;
+    }

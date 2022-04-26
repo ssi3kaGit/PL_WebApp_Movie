@@ -35,7 +35,7 @@
 
             <!-- card with image -->    
             <div class="card mx-auto mt-5" style="width: 27rem;">
-                <img class="card-img-top" src="https://i.pinimg.com/originals/4b/ed/36/4bed369e3d0341b40dbb46d7b97076e2.jpg" alt="loginImg">
+                <img class="card-img-top" src="https://i.pinimg.com/originals/4b/ed/36/4bed369e3d0341b40dbb46d7b97076e2.jpg" alt="loginImg" id="imgClick" onclick="anotherImg()">
                 <div class="card-body">
                     <h4 class="card-title text-center">ReviewMovies</h4>
                     <h6 class="card-subtitle mb-2 text-muted text-center">Brought to you by Sneha Iyer, McKayla Thomas</h6>
@@ -81,8 +81,19 @@
             <a class="text-reset fw-bold" >Sneha Iyer, McKayla Thomas. CS 4640, UVA</a>
             </small>
         </footer>
-        <!-- 4. include bootstrap Javascript-->
+        
+        <script>
 
+            function anotherImg() {
+                if (document.getElementById("imgClick").src == "https://i.pinimg.com/originals/4b/ed/36/4bed369e3d0341b40dbb46d7b97076e2.jpg"){
+                    document.getElementById("imgClick").src = "https://wallpaperaccess.com/full/2063931.jpg";
+                } else {
+                    document.getElementById("imgClick").src = "https://i.pinimg.com/originals/4b/ed/36/4bed369e3d0341b40dbb46d7b97076e2.jpg";
+                }
+            }
+        </script>
+        <!-- 4. include bootstrap Javascript-->
+        
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     </body>
 </html>

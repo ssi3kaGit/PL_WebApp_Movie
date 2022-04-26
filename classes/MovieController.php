@@ -134,7 +134,7 @@ class MovieController {
             $name = $_COOKIE["name"];
         }
         $user = [
-            "name" => $name,
+            "name" => $_SESSION["name"], //$name,
             "email" => $_SESSION["email"],
             //"score" => $_COOKIE["score"]
         ];
@@ -182,7 +182,7 @@ class MovieController {
         
         
         $user = [
-            "name" => $_COOKIE["name"],
+            "name" => $_SESSION["name"],
             "email" => $_SESSION["email"],
             //"score" => $_SESSION["score"]
         ];
@@ -258,11 +258,13 @@ class MovieController {
             // }   
 
             $email = $_SESSION["email"];
+            //echo "email: ".$email;
+
             // database insert SQL code
-            $sql = "insert into `movie_reviews` (`id`, `user_email`, `date`, `category`, `title`, `review`, `rating`) values (?, ?, ?, ?, ?, ?, ?);";
+            $sql = "insert into `movie_reviews` (`id`, `user_email`, `date`, `category`, `title`, `review`, `rating`) values (0, ?, ?, ?, ?, ?, ?);";
 
             // insert in database 
-            $rs = $this->db->query($sql, "sssssss", '0', $email, $date, $category, $title, $review, $rating); //mysqli_query($con, $sql);
+            $rs = $this->db->query($sql, "ssssss", $email, $date, $category, $title, $review, $rating); //mysqli_query($con, $sql);
 
             if($rs)
             {

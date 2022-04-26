@@ -77,7 +77,7 @@
 
         <div class="container" style="margin-top: 15px;">
             <div class="row col-xs-8">
-                <h1>CS4640 Sprint 3 - See Reviews</h1>
+                <h1>CS4640 Sprint 4 - See Reviews</h1>
                 <h3>Hello <?=$user["name"]?>! Email: <?=$user["email"]?></h3>
             </div>
 
@@ -108,7 +108,7 @@
         </div>
 
       
-        <button onclick="darkMode()">Toggle dark/gray mode</button>
+        <button class="btn btn-primary" onclick="darkMode()">Toggle dark/gray mode</button>
 
         <div id="OverallDiv">
             <!-- <div id="moveDivheader">

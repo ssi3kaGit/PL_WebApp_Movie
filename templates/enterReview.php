@@ -143,6 +143,10 @@
         crossorigin="anonymous"></script>
         <script type="text/javascript">
 
+            data = (sessionStorage.getItem('id')); //sessionStorage.getItem('title');
+            // console.log("data: ", data);
+            document.getElementById("title").value = data;
+
             //jquery used here for form validation dynamic behavior
             //anonymous function used here too
             $("#form2").submit(function(){
